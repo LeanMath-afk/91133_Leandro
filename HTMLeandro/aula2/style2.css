@@ -1,0 +1,44 @@
+
+Body{
+    font-family: Arial, sans-serif;
+}
+
+section{
+    width: 60%;
+    margin:0 auto;
+}
+
+h1{
+    font-size:24px;
+    text-align: center;
+}
+
+form{
+    margin-top:20px;
+}
+
+input,select{
+    border: 1px solid;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+
+label{
+    font-size: bold;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
