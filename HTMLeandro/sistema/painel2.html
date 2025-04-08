@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha de Produtos - Sistema Cadpro</title>
+    <link rel="stylesheet" href="meu.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Escolha seu Produto</h1>
+        <form id="form-produto" action="#">
+            <div class="form-group">
+                <label for="produto">Produto</label>
+                <select id="produto" name="produto">
+                    <option value="produto1">Produto 1</option>
+                    <option value="produto2">Produto 2</option>
+                    <option value="produto3">Produto 3</option>
+                    <option value="produto4">Produto 4</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="preco">Preço</label>
+                <input type="text" id="preco" name="preco">
+            </div>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade" name="quantidade" min="1" value="1">
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Adicionar ao Carrinho</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script_prod.js"></script>
+</body>
+</html>
