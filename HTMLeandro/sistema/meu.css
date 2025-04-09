@@ -1,11 +1,9 @@
-/* Resetando margens e paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilizando o corpo da página */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -17,7 +15,6 @@ body {
     height: 100vh;
 }
 
-/* Container principal */
 .container {
     background-color: white;
     padding: 20px;
@@ -25,18 +22,16 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-    margin-bottom: 30px; /* Espaçamento entre as telas */
+    margin-bottom: 30px;
     text-align: center;
 }
 
-/* Título */
 h1 {
     color: #4CAF50;
     margin-bottom: 20px;
     font-size: 1.8rem;
 }
 
-/* Estilizando os campos do formulário */
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -61,7 +56,6 @@ h1 {
     border-color: #4CAF50;
 }
 
-/* Botão */
 button {
     width: 100%;
     padding: 10px;

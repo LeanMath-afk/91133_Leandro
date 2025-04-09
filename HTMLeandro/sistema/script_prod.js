@@ -1,27 +1,44 @@
-const produtos = {
-    produto1: 10.00,
-    produto2: 20.00,
-    produto3: 30.00,
-    produto4: 40.00
-};
+document.addEventListener('DOMContentLoaded', function () {
+    const produtoSelect = document.getElementById('produto');
+    const precoInput = document.getElementById('preco');
+    const quantidadeInput = document.getElementById('quantidade');
+    const totalInput = document.getElementById('total');
+    const form = document.getElementById('form-produto');
 
-document.getElementById("produto").addEventListener("change", function() {
-    const produtoSelecionado = this.value;
-    const preco = produtos[produtoSelecionado];
-    document.getElementById("preco").value = `R$ ${preco.toFixed(2)}`;
-    calcularTotal();
+    const precos = {
+        produto1: 10.00,
+        produto2: 15.50,
+        produto3: 20.75,
+        produto4: 12.30
+    };
+
+    produtoSelect.addEventListener('change', function () {
+        const produtoSelecionado = produtoSelect.value;
+        const preco = precos[produtoSelecionado] || 0;
+        precoInput.value = preco.toFixed(2);
+        atualizarTotal();
+    });
+
+    quantidadeInput.addEventListener('input', atualizarTotal);
+
+    function atualizarTotal() {
+        const preco = parseFloat(precoInput.value) || 0;
+        const quantidade = parseInt(quantidadeInput.value) || 1;
+        const total = preco * quantidade;
+        totalInput.value = total.toFixed(2);
+    }
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const dados = {
+            produto: produtoSelect.value,
+            preco: precoInput.value,
+            quantidade: quantidadeInput.value,
+            total: totalInput.value
+        };
+        console.log('Produto adicionado ao carrinho:', dados);
+        alert('Produto adicionado ao carrinho!');
+    });
+
+    produtoSelect.dispatchEvent(new Event('change'));
 });
-
-function calcularTotal() {
-    const quantidade = document.getElementById("quantidade").value;
-    const produtoSelecionado = document.getElementById("produto").value;
-    const preco = produtos[produtoSelecionado];
-    const total = preco * quantidade;
-    document.getElementById("total").value = `R$ ${total.toFixed(2)}`;
-}
-
-document.getElementById("quantidade").addEventListener("input", calcularTotal);
-
-window.onload = function() {
-    document.getElementById("produto").dispatchEvent(new Event("change"));
-};
