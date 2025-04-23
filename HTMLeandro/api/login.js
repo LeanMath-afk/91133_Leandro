@@ -3,7 +3,7 @@ function validarLogin(){
     let senha = document.getElementById("senha").value.trim();
 
     if(usuario === "" || senha === ""){
-        alert|("Por favor,preencha todos os campos.");
+        alert("Por favor,preencha todos os campos.");
         return false;
     }
     return true;
