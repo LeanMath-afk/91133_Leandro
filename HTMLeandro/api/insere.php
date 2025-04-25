@@ -4,31 +4,16 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     header("location: http://localhost/app/api/index.html");
     exit
 }
+$produto = $_POST['produto'];
+$tipo = $_POST['tipo'];
+$quantidade = $_POST['quantidade'];
 
-if(empty($usuario) || empty($senha)) {
-    echo "<script>
-    alert ('preencha todos os campos.');
-    window.location.href = 'index.html';
-    </script>";
-    exit;
-}
+$sql = "INSERT INTO produtos(produto,tipo,quantidade) VALUES (?,?,?)";
 
-$stmt = $conn->prepare("SELECT * FROM usuarios WHERE usuarios = ? and senha = password(?)");
-$stmt->bind_param("ss",$usuario,$senha);
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssi",$produto,$tipo,$quantidade);
+
 $stmt->execute();
-$resultado = $stmt->get_result();
+$stmt->close();
 
-if($resultado->num_rows === 1){
-    $_SESSION['usuario'] = $usuario;
-    echo "<script>
-    alert ('login feito com sucesso!.');
-    window.location.href = 'http://localhost/app/api/cad.html';
-    </script>";
-    exit;
-} else {
-    echo "<script>
-    alert ('login ou senha incorrentos!');
-    window.location.href = 'http://localhost/app/api/cad.html';
-    </script>";
-    exit;
-}
+?>
