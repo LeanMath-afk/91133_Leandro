@@ -1,7 +1,7 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST'){
-    header("location: http://localhost/api/index.html");
+    header("location: http://localhost/app/api/index.html");
     exit
 }
 
@@ -22,13 +22,13 @@ if($resultado->num_rows === 1){
     $_SESSION['usuario'] = $usuario;
     echo "<script>
     alert ('login feito com sucesso!.');
-    window.location.href = 'http://localhost/api/cad.html';
+    window.location.href = 'http://localhost/app/api/cad.html';
     </script>";
     exit;
 } else {
     echo "<script>
     alert ('login ou senha incorrentos!');
-    window.location.href = 'http://localhost/api/cad.html';
+    window.location.href = 'http://localhost/app/api/cad.html';
     </script>";
     exit;
 }
